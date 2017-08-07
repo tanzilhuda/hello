@@ -1,0 +1,326 @@
+/* ========================================================================
+   Component: Animation
+ ========================================================================== */
+[class*='szm-animation-'] {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+/* Hide animated element if scrollspy is used */
+@media screen {
+  [data-szm-scrollspy*='szm-animation-'] {
+    opacity: 0;
+  }
+}
+/*
+ * Fade
+ * Higher specificity (!important) needed because of reverse modifier
+ */
+.szm-animation-fade {
+  -webkit-animation-name: szm-fade;
+  animation-name: szm-fade;
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
+  -webkit-animation-timing-function: linear !important;
+  animation-timing-function: linear !important;
+}
+/*
+ * Fade with scale
+ */
+.szm-animation-scale-up {
+  -webkit-animation-name: szm-fade-scale-02;
+  animation-name: szm-fade-scale-02;
+}
+.szm-animation-scale-down {
+  -webkit-animation-name: szm-fade-scale-18;
+  animation-name: szm-fade-scale-18;
+}
+/*
+ * Fade with slide
+ */
+.szm-animation-slide-top {
+  -webkit-animation-name: szm-fade-top;
+  animation-name: szm-fade-top;
+}
+.szm-animation-slide-bottom {
+  -webkit-animation-name: szm-fade-bottom;
+  animation-name: szm-fade-bottom;
+}
+.szm-animation-slide-left {
+  -webkit-animation-name: szm-fade-left;
+  animation-name: szm-fade-left;
+}
+.szm-animation-slide-right {
+  -webkit-animation-name: szm-fade-right;
+  animation-name: szm-fade-right;
+}
+/*
+ * Scale
+ */
+.szm-animation-scale {
+  -webkit-animation-name: szm-scale-12;
+  animation-name: szm-scale-12;
+}
+/*
+ * Shake
+ */
+.szm-animation-shake {
+  -webkit-animation-name: szm-shake;
+  animation-name: szm-shake;
+}
+/* Direction modifiers
+ ========================================================================== */
+.szm-animation-reverse {
+  -webkit-animation-direction: reverse;
+  animation-direction: reverse;
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+}
+/* Duration modifiers
+========================================================================== */
+.szm-animation-15 {
+  -webkit-animation-duration: 15s;
+  animation-duration: 15s;
+}
+/* Origin modifiers
+========================================================================== */
+.szm-animation-top-left {
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+.szm-animation-top-center {
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+}
+.szm-animation-top-right {
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+}
+.szm-animation-middle-left {
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+}
+.szm-animation-middle-right {
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+}
+.szm-animation-bottom-left {
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+}
+.szm-animation-bottom-center {
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+.szm-animation-bottom-right {
+  -webkit-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+/* Sub-object: `szm-animation-hover`
+========================================================================== */
+/*
+ * Enable animation only on hover
+ * Needed for Firefox because animations are not triggered when switching between display `hidden` and `block`
+ */
+.szm-animation-hover:not(:hover),
+.szm-animation-hover:not(:hover) [class*='szm-animation-'],
+.szm-touch .szm-animation-hover:not(.szm-hover),
+.szm-touch .szm-animation-hover:not(.szm-hover) [class*='szm-animation-'] {
+  -webkit-animation-name: none;
+  animation-name: none;
+}
+/* Keyframes: Fade
+ * Used by dropdown, datepicker and slideshow component
+ ========================================================================== */
+@-webkit-keyframes szm-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes szm-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* Keyframes: Fade with slide
+ ========================================================================== */
+/*
+ * Top
+ */
+@-webkit-keyframes szm-fade-top {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes szm-fade-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*
+ * Bottom
+ */
+@-webkit-keyframes szm-fade-bottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes szm-fade-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*
+ * Left
+ */
+@-webkit-keyframes szm-fade-left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes szm-fade-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/*
+ * Right
+ */
+@-webkit-keyframes szm-fade-right {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes szm-fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*
+ * Left
+ */
+@-webkit-keyframes szm-slide-left {
+  0% {
+    -webkit-transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes szm-slide-left {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/*
+ * Right
+ */
+@-webkit-keyframes szm-slide-right {
+  0% {
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes szm-slide-right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/*
+ * Left third
+ */
+@-webkit-keyframes szm-slide-left-33 {
+  0% {
+    -webkit-transform: translateX(33%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes szm-slide-left-33 {
+  0% {
+    transform: translateX(33%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/*
+ * Right third
+ */
+@-webkit-keyframes szm-slide-right-33 {
+  0% {
+    -webkit-transform: translateX(-33%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes szm-slide-right-33 {
+  0% {
+    transform: translateX(-33%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* Keyframes: Scale
+ =========================================================
